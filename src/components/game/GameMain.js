@@ -5,9 +5,9 @@ import { ContextGame } from "../../context/ContextGame";
 
 import FormPerson from "./FormPerson";
 import AddEffect from "./AddEffect";
-import SidebarMenu from "./SidebarMenu";
+// import SidebarMenu from "./SidebarMenu";
 
-import QRCode from "react-qr-code";
+// import QRCode from "react-qr-code";
 
 export default () => {
   const { Persons, visibleEffect } = useContext(ContextGame);
