@@ -1,0 +1,32 @@
+.fx 
+{
+    display: flex;
+}
+
+.w-a
+{
+    width: auto;
+}
+
+.w50
+{
+    width: 50%;
+}
+
+.h100
+{
+    height: 100%;
+}
+
+.create-game
+{
+    height: 168px;
+}
+
+.add-person
+{
+    position: absolute;
+    top: 50%;
+    right: -100px;
+    transform: translateY(-50%);
+}
