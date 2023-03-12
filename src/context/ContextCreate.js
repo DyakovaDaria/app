@@ -44,7 +44,7 @@ export default ({ children }) => {
     for (let person of Persons) {
       for (let key in person) {
         if (key != "dropdown" && key != "effects") {
-          if (person[key].trim() == "") return setErr("Error inputs");
+          if (person[key].trim() == "") return setErr("Заполните все поля");
         }
       }
     }

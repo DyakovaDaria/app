@@ -37,7 +37,7 @@ export default () => {
               <input type="number" className="noframe-input" placeholder="0" />
             </div>
           </div>
-          <div className="w50 pr5">
+          <div className="w50 lr5">
             <button className="btn h100 popup-fx btn-inf">
               <i className="fa-solid fa-infinity icon text-light"></i>
             </button>

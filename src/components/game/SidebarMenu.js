@@ -3,27 +3,29 @@ import {
   Menu,
   MenuItem,
   SubMenu,
-  useProSidebar,
-  ProSidebar,
-  SidebarHeader,
-  SidebarFooter,
-  SidebarContent,
+  //   useProSidebar,
+  //   ProSidebar,
+  //   SidebarHeader,
+  //   SidebarFooter,
+  //   SidebarContent,
 } from "react-pro-sidebar";
 
 export default () => {
-
   return (
     <div>
       <Sidebar>
         <Menu>
-          <MenuItem> Calendar</MenuItem>
-          <SubMenu></SubMenu>
-          <MenuItem> E-commerce</MenuItem>
+          <SubMenu label="Charts">
+            <MenuItem> Pie charts </MenuItem>
+            <MenuItem> Line charts </MenuItem>
+          </SubMenu>
+          <MenuItem> Documentation </MenuItem>
+          <MenuItem> Calendar </MenuItem>
         </Menu>
       </Sidebar>
-      <main>
+      {/* <main>
         <button className="btn">Collapse</button>
-      </main>
+      </main> */}
     </div>
   );
 };
