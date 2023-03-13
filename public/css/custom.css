@@ -36,3 +36,39 @@
     width: 80%;
     font-size: 15px;
 }
+
+.acc-title
+{
+    padding: 10px;
+    display: flex;
+    border-radius: 50px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.acc-title:hover 
+{
+    background: rgba(255,255,255, .1);
+}
+
+.acc-text
+{
+    padding: 0 10px;
+    display: none;
+}
+
+
+.sidebar-r .noframe-input,
+.sidebar-r .noframe-input::placeholder
+{
+    font-size: 16px;
+    text-align: left;
+    padding: 0;
+}
+
+.sidebar-r .noframe-input
+{
+    height: 50vh;
+    resize: none;
+}

@@ -4,8 +4,6 @@ import { ContextGame } from "../../context/ContextGame";
 export default () => {
   const { setVisibleEffect } = useContext(ContextGame);
 
-  
-
   return (
     <>
       <div className="popup-frame">
