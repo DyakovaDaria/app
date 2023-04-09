@@ -17,7 +17,7 @@ export default ({
   const displayPersonsEffects = () => {
     const person = Persons.find((p) => p.id === currPerson);
     if (person) {
-      return person.effects.map((effect, index) => <p key={index} className="p-rounded w-a">{effect.type}</p>);
+      return person.effects.map((effect, index) => <p key={index} className="p-rounded ml5">{effect.type}</p>);
     }
   };
 
@@ -27,14 +27,14 @@ export default ({
         <h3 className="text-upper text-grey">{username}</h3>
         <div className="frame-area mt10">
           <p className="text-sm text-grey">Состояния</p>
-          <div className="fx mt10">
-            {displayPersonsEffects()}
+          <div className="fx mt10 horizontal-scroll">
             <button
               className="btn-rounded w-a"
               onClick={() => setVisibleEffect(true)}
             >
               <i className="fa-solid fa-plus"></i>
             </button>
+            {displayPersonsEffects()}
           </div>
         </div>
 

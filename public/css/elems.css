@@ -131,8 +131,12 @@
 }
 
 .p-rounded {
-  width: 100%;
-  min-width: 54px;
+  display: inline-block;
+  width: auto;
+  max-width: none;
+
+  /* width: 100%; */
+  /* min-width: 54px; */
   height: 32px;
   padding: 5px 15px;
   border-radius: 50px;

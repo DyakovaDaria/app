@@ -1,106 +1,102 @@
-*
-{
-    margin: 0;
-    padding: 0;
-    font-family: Inter, sans-serif;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: 0;
-    outline: none;
-    appearance: none;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: 0;
+  outline: none;
+  appearance: none;
 }
 
-*::-webkit-inner-spin-button
-{
-    display: none;
+*::-webkit-inner-spin-button {
+  display: none;
 }
 
-*::-webkit-scrollbar
-{
-    width: 6px;
-    background: #345;
+*::-webkit-scrollbar {
+  width: 3px;
+  height: 7px;
+  background: #151516;
+  opacity: 0; 
 }
 
-*::-webkit-scrollbar-thumb
-{
-    width: 6px;
-    background: #123;
-    border-radius: 10px;
+*::-webkit-scrollbar:hover {
+  opacity: 1;
 }
 
-body 
-{
-    min-height: 100vh;
-    background: #000000;
+* ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+*::-webkit-scrollbar-thumb {
+  width: 3px;
+  max-width: 3px;
+  height: 7px;
+  background: #8d8d8e;
+  border-radius: 10px;
 }
 
-
-label, p, span, a 
-{
-    font-size: 16px;
-    font-weight: 500;
+body {
+  min-height: 100vh;
+  background: #000000;
 }
 
-.text-sm 
-{
-    font-size: 14px;
-    font-weight: 500;
+label,
+p,
+span,
+a {
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.text-lg 
-{
-    font-size: 36px;
-    font-weight: 500;
+.text-sm {
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.text-upper
-{
-    font-size: 20px;
-    font-weight: 500;
-    text-transform: uppercase;
+.text-lg {
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.text-upper {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .text-light,
-.text-light *
-{
-    color: #fff;
+.text-light * {
+  color: #fff;
 }
 
 .text-grey,
-.text-grey *
-{
-    color: #8D8D8E;
+.text-grey * {
+  color: #8d8d8e;
 }
 
 .text-err,
-.text-err *
-{
-    color: red;
+.text-err * {
+  color: red;
 }
 
-.t-left
-{
-    text-align: left !important;
-} 
-
-.t-center
-{
-    text-align: center !important;
+.t-left {
+  text-align: left !important;
 }
 
-.t-right
-{
-    text-align: right !important;
+.t-center {
+  text-align: center !important;
 }
 
+.t-right {
+  text-align: right !important;
+}
 
-button 
-{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 
 .br-none,
-.br-none *
-{
-    border: 0 !important;
+.br-none * {
+  border: 0 !important;
 }

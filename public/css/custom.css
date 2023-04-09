@@ -1,74 +1,66 @@
-.fx 
-{
-    display: flex;
+.fx {
+  display: flex;
 }
 
-.w-a
-{
-    width: auto;
+.w-a {
+  width: auto;
 }
 
-.w50
-{
-    width: 50%;
+.w50 {
+  width: 50%;
 }
 
-.h100
-{
-    height: 100%;
+.h100 {
+  height: 100%;
 }
 
-.create-game
-{
-    height: 168px;
+.create-game {
+  height: 168px;
 }
 
-.add-person
-{
-    position: absolute;
-    top: 50%;
-    right: -100px;
-    transform: translateY(-50%);
+.add-person {
+  position: absolute;
+  top: 50%;
+  right: -100px;
+  transform: translateY(-50%);
 }
 
-.w80
-{
-    width: 80%;
-    font-size: 15px;
+.w80 {
+  width: 80%;
+  font-size: 15px;
 }
 
-.acc-title
-{
-    padding: 10px;
-    display: flex;
-    border-radius: 50px;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
+.acc-title {
+  padding: 10px;
+  display: flex;
+  border-radius: 50px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
-.acc-title:hover 
-{
-    background: rgba(255,255,255, .1);
+.acc-title:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.acc-text
-{
-    padding: 0 10px;
-    display: none;
+.acc-text {
+  padding: 0 10px;
+  display: none;
 }
-
 
 .sidebar-r .noframe-input,
-.sidebar-r .noframe-input::placeholder
-{
-    font-size: 16px;
-    text-align: left;
-    padding: 0;
+.sidebar-r .noframe-input::placeholder {
+  font-size: 16px;
+  text-align: left;
+  padding: 0;
 }
 
-.sidebar-r .noframe-input
-{
-    height: 50vh;
-    resize: none;
+.sidebar-r .noframe-input {
+  height: 50vh;
+  resize: none;
+}
+
+.horizontal-scroll {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent content from wrapping onto a new line */
 }
