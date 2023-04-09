@@ -10,10 +10,9 @@ export default ({ children }) => {
     skill2: "",
     skill3: "",
     dropdown: false,
-    effects: {
-      type: "",
-      duration: 0,
-    }
+    effects: [{ type: "", duration: 0 }],
+    initiative: 0,
+    id: 0,
   };
 
   const [step, setStep] = useState(0);
@@ -50,15 +49,17 @@ export default ({ children }) => {
     }
 
     const createInvitationString = () => {
-      let result = '';
-      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let result = "";
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       let counter = 0;
       while (counter < 4) {
-        result += characters.charAt(Math.floor(Math.random() * characters.length));
+        result += characters.charAt(
+          Math.floor(Math.random() * characters.length)
+        );
         counter += 1;
       }
       return result;
-    }
+    };
 
     localStorage.setItem("persons", JSON.stringify(Persons));
     localStorage.setItem("qr", createInvitationString());
