@@ -2,11 +2,12 @@ import { useContext, useState } from "react";
 import { ContextGame } from "../../context/ContextGame";
 
 export default () => {
-  const { setVisibleEffect, currPerson, Persons, setPersons } = useContext(ContextGame);
+  const { setVisibleEffect, currPerson, Persons, setPersons } =
+    useContext(ContextGame);
 
   const [effect, setEffects] = useState("Без сознания");
   const [effDuration, setDuration] = useState(0);
-  const [placeholderText, setPlaceholderText] = useState("0");
+  const [placeholderText, setPlaceholderText] = useState(0);
 
   return (
     <>
@@ -44,7 +45,10 @@ export default () => {
                 className="noframe-input"
                 placeholder="0"
                 value={placeholderText}
-                onChange={(e) => setDuration(parseInt(e.target.value))}
+                onChange={(e) => {
+                  setDuration(parseInt(e.target.value));
+                  setPlaceholderText(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -77,9 +81,9 @@ export default () => {
                 return person;
               }
             });
-            setPersons(updatedPersons);
+            setPersons(() => updatedPersons);
+            localStorage.setItem("persons", JSON.stringify(updatedPersons));
             setVisibleEffect(false);
-            console.log(updatedPersons);
           }}
         >
           Продолжить

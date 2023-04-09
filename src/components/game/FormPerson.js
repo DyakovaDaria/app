@@ -1,8 +1,25 @@
 import { useContext } from "react";
 import { ContextGame } from "../../context/ContextGame";
 
-export default ({ username, lang, skill1, skill2, skill3, dropdown, effects, initiative, id }) => {
-  const { setVisibleEffect } = useContext(ContextGame);
+export default ({
+  username,
+  lang,
+  skill1,
+  skill2,
+  skill3,
+  dropdown,
+  effects,
+  initiative,
+  id,
+}) => {
+  const { setVisibleEffect, Persons, currPerson } = useContext(ContextGame);
+
+  const displayPersonsEffects = () => {
+    const person = Persons.find((p) => p.id === currPerson);
+    if (person) {
+      return person.effects.map((effect, index) => <p key={index} className="p-rounded w-a">{effect.type}</p>);
+    }
+  };
 
   return (
     <>
@@ -11,6 +28,7 @@ export default ({ username, lang, skill1, skill2, skill3, dropdown, effects, ini
         <div className="frame-area mt10">
           <p className="text-sm text-grey">Состояния</p>
           <div className="fx mt10">
+            {displayPersonsEffects()}
             <button
               className="btn-rounded w-a"
               onClick={() => setVisibleEffect(true)}

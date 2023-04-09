@@ -4,7 +4,7 @@ export const ContextGame = createContext();
 
 export default ({ children }) => {
 
-    const [ Persons, setPersons ] = useState([])
+    const [ Persons, setPersons ] = useState([]);
     const [ visibleEffect, setVisibleEffect ] = useState(false);
 
     const [currPerson, setCurrPerson] = useState(0);

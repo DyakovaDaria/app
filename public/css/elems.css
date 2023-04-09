@@ -130,6 +130,19 @@
   font-weight: 500;
 }
 
+.p-rounded {
+  width: 100%;
+  min-width: 54px;
+  height: 32px;
+  padding: 5px 15px;
+  border-radius: 50px;
+  background: #383841;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
 .btn-circle {
   width: 50px;
   height: 50px;
