@@ -2,9 +2,9 @@ import { useContext, useState } from "react";
 import { ContextGame } from "../../context/ContextGame";
 
 export default () => {
-  const { setVisibleEffect } = useContext(ContextGame);
+  const { setVisibleEffect, currPerson, Persons, setPersons } = useContext(ContextGame);
 
-  const [effect, setEffects] = useState("");
+  const [effect, setEffects] = useState("Без сознания");
   const [effDuration, setDuration] = useState(0);
   const [placeholderText, setPlaceholderText] = useState("0");
 
@@ -42,7 +42,8 @@ export default () => {
               <input
                 type="number"
                 className="noframe-input"
-                placeholder={placeholderText}
+                placeholder="0"
+                value={placeholderText}
                 onChange={(e) => setDuration(parseInt(e.target.value))}
               />
             </div>
@@ -62,10 +63,25 @@ export default () => {
 
         <p className="text-sm text-light t-center mt10">раундов</p>
 
-        <button className="btn mt40" onClick={() => {
-          
-          setVisibleEffect(false);
-        }}>
+        <button
+          className="btn mt40"
+          onClick={() => {
+            const newEffect = { type: effect, duration: effDuration };
+            const updatedPersons = Persons.map((person) => {
+              if (person.id === currPerson) {
+                return {
+                  ...person,
+                  effects: [...person.effects, newEffect],
+                };
+              } else {
+                return person;
+              }
+            });
+            setPersons(updatedPersons);
+            setVisibleEffect(false);
+            console.log(updatedPersons);
+          }}
+        >
           Продолжить
         </button>
         <button

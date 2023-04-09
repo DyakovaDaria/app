@@ -10,7 +10,7 @@ export default ({ children }) => {
     skill2: "",
     skill3: "",
     dropdown: false,
-    effects: [{ type: "", duration: 0 }],
+    effects: [],
     initiative: 0,
     id: 0,
   };
@@ -42,7 +42,7 @@ export default ({ children }) => {
   const submitPersonForm = () => {
     for (let person of Persons) {
       for (let key in person) {
-        if (key != "dropdown" && key != "effects") {
+        if (key != "dropdown" && key != "effects" && key != "initiative" && key != "id") {
           if (person[key].trim() == "") return setErr("Заполните все поля");
         }
       }

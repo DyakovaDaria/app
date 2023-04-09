@@ -10,7 +10,7 @@ import SidebarLeft from "./SidebarLeft";
 import SidebarRight from "./SidebarRight";
 
 export default () => {
-  const { Persons, visibleEffect } = useContext(ContextGame);
+  const { Persons, visibleEffect, setCurrPerson } = useContext(ContextGame);
 
   if (!Persons.length) return null;
 
@@ -21,8 +21,8 @@ export default () => {
       <SidebarRight />
 
       <PopupWrap customClass="pt10">
-        {Persons.map((el, i) => (
-          <FormPerson key={el.id} {...el} />
+        {Persons.map((el) => (
+          <FormPerson key={el.id} {...el} onClick={setCurrPerson(el.id)} />
         ))}
       </PopupWrap>
 

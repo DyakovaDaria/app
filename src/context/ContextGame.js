@@ -7,6 +7,8 @@ export default ({ children }) => {
     const [ Persons, setPersons ] = useState([])
     const [ visibleEffect, setVisibleEffect ] = useState(false);
 
+    const [currPerson, setCurrPerson] = useState(0);
+
     useEffect(() => {
         let persons = JSON.parse(localStorage.getItem("persons")) || [];
 
@@ -17,7 +19,7 @@ export default ({ children }) => {
     }, []);
     
     return (
-        <ContextGame.Provider value={{ Persons, visibleEffect, setVisibleEffect }}>
+        <ContextGame.Provider value={{ Persons, setPersons, visibleEffect, setVisibleEffect, currPerson, setCurrPerson }}>
             { children }
         </ContextGame.Provider>
     )

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ContextGame } from "../../context/ContextGame";
 
-export default ({ username, lang, skill1, skill2, skill3 }) => {
+export default ({ username, lang, skill1, skill2, skill3, dropdown, effects, initiative, id }) => {
   const { setVisibleEffect } = useContext(ContextGame);
 
   return (
