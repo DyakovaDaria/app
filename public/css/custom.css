@@ -64,3 +64,11 @@
   overflow-x: auto; /* Enable horizontal scrolling */
   white-space: nowrap; /* Prevent content from wrapping onto a new line */
 }
+
+.border-frame-area {
+  width: 100%;
+  background: #151516;
+  border-radius: 9px;
+  padding: 5px;
+  border: 5px solid #989899;
+}

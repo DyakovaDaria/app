@@ -5,14 +5,14 @@ import { ContextGame } from "../../context/ContextGame";
 
 import FormPerson from "./standardMode/FormPerson";
 import AddEffect from "./standardMode/AddEffect";
+import InitiativeFormPerson from "./initiativeMode/InitiativeFormPerson";
 
 import SidebarLeft from "./SidebarLeft";
 import SidebarRight from "./SidebarRight";
 
 export default () => {
-  const { Persons, visibleEffect, setCurrPerson } = useContext(ContextGame);
+  const { Persons, visibleEffect, setCurrPerson, isInitiative } = useContext(ContextGame);
 
-  const [isInitiative, setInitiative] = useState(false);
 
   if (!Persons.length) return null;
 
@@ -25,7 +25,7 @@ export default () => {
       {isInitiative ? (
         <PopupWrap customClass="pt10">
           {Persons.map((el) => (
-            <FormPerson key={el.id} {...el} onClick={setCurrPerson(el.id)} />
+            <InitiativeFormPerson key={el.id} {...el} onClick={setCurrPerson(el.id)} />
           ))}
         </PopupWrap>
       ) : (
