@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ContextGame } from "../../context/ContextGame";
+import { ContextGame } from "../../../context/ContextGame";
 
 export default ({
   username,

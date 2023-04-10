@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { ContextGame } from "../../context/ContextGame";
+import { ContextGame } from "../../../context/ContextGame";
 
 export default () => {
   const { setVisibleEffect, currPerson, Persons, setPersons } =
