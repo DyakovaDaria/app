@@ -43,10 +43,9 @@ export default () => {
 
   const startedGameListView = () => {
     if (roundCounter > 0) {
-      // const newPersons = currPersons.sort((a, b) => b.initiative - a.initiative);
-      // setCurrPersons(newPersons);
-      // setPersons(currPersons);
-      return currPersons.sort((a, b) => b.initiative - a.initiative).map(
+      const newPersons = currPersons.sort((a, b) => b.initiative - a.initiative);
+      setPersons(newPersons);
+      return currPersons.map(
         (el) =>
           el.isNpc ? (
             <NpcCharacterForm key={el.id} {...el} />
