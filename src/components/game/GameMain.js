@@ -1,6 +1,6 @@
 import PopupWrap from "../PopupWrap";
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContextGame } from "../../context/ContextGame";
 
 import FormPerson from "./standardMode/FormPlayablePerson";
@@ -11,10 +11,22 @@ import SidebarLeft from "./SidebarLeft";
 import SidebarRight from "./SidebarRight";
 
 export default () => {
-  const { Persons, visibleEffect, setCurrPerson, isInitiative } = useContext(ContextGame);
-
+  const { Persons, visibleEffect, setCurrPerson, isInitiative } =
+    useContext(ContextGame);
 
   if (!Persons.length) return null;
+
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  useEffect(() => {
+    let initiativeFlag = true;
+    for (let index = 0; index < Persons.length && initiativeFlag; index++) {
+      if (Persons[index].initiative == 0) {
+        initiativeFlag = false;
+      }
+    }
+    setIsButtonDisabled(!initiativeFlag);
+  });
 
   return (
     <>
@@ -31,13 +43,20 @@ export default () => {
             <p className="text-round text-light">0</p>
           </div>
           <div className="btn-r-inf add-person mt90">
-          <p className="text-sm text-light">раунд</p>
+            <p className="text-sm text-light">раунд</p>
           </div>
-          <button className="btn-circle add-person mt150">
+          <button
+            className="btn-circle add-person mt150"
+            disabled={isButtonDisabled}
+          >
             <i className="fa-solid fa-angle-down"></i>
           </button>
           {Persons.map((el) => (
-            <InitiativeFormPerson key={el.id} {...el} onClick={setCurrPerson(el.id)} />
+            <InitiativeFormPerson
+              key={el.id}
+              {...el}
+              onClick={setCurrPerson(el.id)}
+            />
           ))}
         </PopupWrap>
       ) : (

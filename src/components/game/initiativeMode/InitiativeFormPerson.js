@@ -12,10 +12,11 @@ export default ({
   initiative,
   id,
 }) => {
-  const { setVisibleEffect, Persons, currPerson } = useContext(ContextGame);
+  const { setVisibleEffect, Persons, setPersons, currPerson } =
+    useContext(ContextGame);
+  const person = Persons.find((p) => p.id === currPerson);
 
   const displayPersonsEffects = () => {
-    const person = Persons.find((p) => p.id === currPerson);
     if (person) {
       return person.effects.map((effect, index) => (
         <p key={index} className="p-rounded ml5">
@@ -23,6 +24,21 @@ export default ({
         </p>
       ));
     }
+  };
+
+  const changePersonInitiative = (val) => {
+    const updatedPersons = Persons.map((person) => {
+      if (person.id === currPerson) {
+        return {
+          ...person,
+          initiative: val,
+        };
+      } else {
+        return person;
+      }
+    });
+    setPersons(() => updatedPersons);
+    localStorage.setItem("persons", JSON.stringify(updatedPersons));
   };
 
   return (
@@ -35,12 +51,14 @@ export default ({
             type="number"
             className="noframe-input"
             placeholder="0"
-            //   onChange={(e) => {
-            //     setDuration(parseInt(e.target.value));
-            //     setPlaceholderText(e.target.value);
-            //   }}
+            onChange={(e) => {
+              changePersonInitiative(
+                e.target.value == "" ? 0 : parseInt(e.target.value)
+              );
+            }}
+            value={person.initiative != 0 ? person.initiative : null}
           />
-        <p className="text-sm text-grey t-center">Инициатива</p>
+          <p className="text-sm text-grey t-center">Инициатива</p>
         </div>
 
         <div className="frame-area mt10">

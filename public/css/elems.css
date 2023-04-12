@@ -160,6 +160,19 @@
   color: #fff;
 }
 
+.btn-circle:disabled {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #383841d6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: #ffffff2f;
+}
+
 .btn-r-inf {
   width: 50px;
   height: 50px;
