@@ -11,7 +11,6 @@ export default ({ children }) => {
 
   useEffect(() => {
     let persons = JSON.parse(localStorage.getItem("persons")) || [];
-
     if (persons.length) setPersons(persons);
     else window.location.assign("/");
   }, []);
@@ -26,7 +25,9 @@ export default ({ children }) => {
         isInitiative,
         setInitiative,
         visibleNpcCreate,
-        setVisibleNpcCreate, currPerson, setCurrPerson
+        setVisibleNpcCreate,
+        currPerson,
+        setCurrPerson,
       }}
     >
       {children}

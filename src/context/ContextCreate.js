@@ -50,7 +50,9 @@ export default ({ children }) => {
           key != "effects" &&
           key != "initiative" &&
           key != "id" &&
-          key != "isNpc"
+          key != "isNpc" &&
+          key != "hasCurrentTurn" &&
+          key != "concentration"
         ) {
           if (person[key].trim() == "") return setErr("Заполните все поля");
         }
