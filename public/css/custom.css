@@ -72,3 +72,10 @@
   padding: 5px;
   border: 5px solid #989899;
 }
+
+.round-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
