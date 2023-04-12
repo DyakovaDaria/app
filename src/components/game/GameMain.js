@@ -29,6 +29,7 @@ export default () => {
   const [turnCounter, setTurnCounter] = useState(0);
   const [roundCounter, setRoundCounter] = useState(0);
   const [currPersons, setCurrPersons] = useState([]);
+  const [personTurn, setPersonTurn] = useState(0);
 
   useEffect(() => {
     setCurrPersons(Persons);
@@ -41,17 +42,22 @@ export default () => {
     setIsButtonDisabled(!initiativeFlag);
   });
 
+  const getPlayableOrNpc = (el) => {
+    if (el.isNpc) {
+      return <NpcCharacterForm key={el.id} {...el} />;
+    } else {
+      return <GameProcessPersonForm key={el.id} {...el} />;
+    }
+  };
+
   const startedGameListView = () => {
     if (roundCounter > 0) {
-      const newPersons = currPersons.sort((a, b) => b.initiative - a.initiative);
+      const newPersons = currPersons.sort(
+        (a, b) => b.initiative - a.initiative
+      );
       setPersons(newPersons);
-      return currPersons.map(
-        (el) =>
-          el.isNpc ? (
-            <NpcCharacterForm key={el.id} {...el} />
-          ) : (
-            <GameProcessPersonForm key={el.id} {...el} />
-          )
+      return currPersons.map((el) =>
+        getPlayableOrNpc(el)
       );
     } else {
       return currPersons.map((el) =>
@@ -98,13 +104,6 @@ export default () => {
               } else {
                 setTurnCounter(turnCounter + 1);
               }
-              // const newPersons = Persons.sort(
-              //   (a, b) => b.initiative - a.initiative
-              // );
-              // setPersons(() => newPersons);
-              // localStorage.setItem("persons", JSON.stringify(newPersons));
-
-              // <div className="popup-lightning"></div>
             }}
           >
             <i className="fa-solid fa-angle-down"></i>

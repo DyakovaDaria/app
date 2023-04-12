@@ -31,46 +31,48 @@ export default ({
 
   return (
     <>
-      <div className="popup-frame br-none mt10">
-        <h3 className="text-upper text-grey">{username}</h3>
+      <div className={`mt10 ${hasCurrentTurn ? "popup-lightning" : ""}`}>
+        <div className="popup-frame br-none">
+          <h3 className="text-upper text-grey">{username}</h3>
 
-        <div className="frame-area mt10">
-          <p className="text-sm text-grey">Состояния</p>
-          <div className="fx mt10 horizontal-scroll">
-            <button
-              className="btn-rounded w-a"
-              onClick={() => {
-                setVisibleEffect(true);
-                setCurrPerson(id);
-              }}
-            >
-              <i className="fa-solid fa-plus"></i>
-            </button>
-            {displayPersonsEffects()}
+          <div className="frame-area mt10">
+            <p className="text-sm text-grey">Состояния</p>
+            <div className="fx mt10 horizontal-scroll">
+              <button
+                className="btn-rounded w-a"
+                onClick={() => {
+                  setVisibleEffect(true);
+                  setCurrPerson(id);
+                }}
+              >
+                <i className="fa-solid fa-plus"></i>
+              </button>
+              {displayPersonsEffects()}
+            </div>
           </div>
-        </div>
 
-        <button
-          className={`mt10 ${
-            concentration ? "btn-rounded-green" : "btn-rounded-grey"
-          }`}
-          onClick={() => {
-            const updatedPersons = Persons.map((person) => {
-              if (person.id === id) {
-                return {
-                  ...person,
-                  concentration: !person.concentration,
-                };
-              } else {
-                return person;
-              }
-            });
-            setPersons(() => updatedPersons);
-            localStorage.setItem("persons", JSON.stringify(updatedPersons));
-          }}
-        >
-          Концентрация
-        </button>
+          <button
+            className={`mt10 ${
+              concentration ? "btn-rounded-green" : "btn-rounded-grey"
+            }`}
+            onClick={() => {
+              const updatedPersons = Persons.map((person) => {
+                if (person.id === id) {
+                  return {
+                    ...person,
+                    concentration: !person.concentration,
+                  };
+                } else {
+                  return person;
+                }
+              });
+              setPersons(() => updatedPersons);
+              localStorage.setItem("persons", JSON.stringify(updatedPersons));
+            }}
+          >
+            Концентрация
+          </button>
+        </div>
       </div>
     </>
   );
