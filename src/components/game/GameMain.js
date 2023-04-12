@@ -31,9 +31,10 @@ export default () => {
   const [currPersons, setCurrPersons] = useState([]);
 
   useEffect(() => {
+    setCurrPersons(Persons);
     let initiativeFlag = true;
-    for (let index = 0; index < Persons.length && initiativeFlag; index++) {
-      if (Persons[index].initiative == 0) {
+    for (let index = 0; index < currPersons.length && initiativeFlag; index++) {
+      if (currPersons[index].initiative == 0) {
         initiativeFlag = false;
       }
     }
@@ -42,7 +43,10 @@ export default () => {
 
   const startedGameListView = () => {
     if (roundCounter > 0) {
-      return Persons.sort((a, b) => b.initiative - a.initiative).map(
+      // const newPersons = currPersons.sort((a, b) => b.initiative - a.initiative);
+      // setCurrPersons(newPersons);
+      // setPersons(currPersons);
+      return currPersons.sort((a, b) => b.initiative - a.initiative).map(
         (el) =>
           el.isNpc ? (
             <NpcCharacterForm key={el.id} {...el} />
@@ -51,7 +55,7 @@ export default () => {
           )
       );
     } else {
-      return Persons.map((el) =>
+      return currPersons.map((el) =>
         el.isNpc ? (
           <NpcCharacterForm key={el.id} {...el} />
         ) : (
@@ -89,7 +93,7 @@ export default () => {
               if (turnCounter == 0) {
                 setTurnCounter(turnCounter + 1);
                 setRoundCounter(roundCounter + 1);
-              } else if (turnCounter == Persons.length) {
+              } else if (turnCounter == currPersons.length) {
                 setTurnCounter(1);
                 setRoundCounter(roundCounter + 1);
               } else {
@@ -110,7 +114,7 @@ export default () => {
         </PopupWrap>
       ) : (
         <PopupWrap customClass="pt10">
-          {Persons.map((el) =>
+          {currPersons.map((el) =>
             el.isNpc ? (
               <NpcCharacterForm key={el.id} {...el} />
             ) : (
