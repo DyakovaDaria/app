@@ -1,18 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ContextGame } from "../../../context/ContextGame";
 
 export default ({
   username,
-  lang,
-  skill1,
-  skill2,
-  skill3,
-  dropdown,
-  effects,
   initiative,
+  armor,
+  health,
+  initialHealth,
+  isNpc,
+  effects,
   id,
+  concentration,
+  hasCurrentTurn,
 }) => {
-  const { setVisibleEffect, Persons } = useContext(ContextGame);
+  const { setVisibleEffect, Persons, setCurrPerson, setPersons } =
+    useContext(ContextGame);
   const person = Persons.find((p) => p.id === id);
 
   const displayPersonsEffects = () => {
@@ -34,10 +36,10 @@ export default ({
           <div className="border-frame-area mt10 t-center">
             <h3 className="text-lg text-green">
               <i className="fa-solid fa-heart mr5"></i>
-              11
+              {health}
             </h3>
           </div>
-            <button className="btn-shield">19</button>
+          <button className="btn-shield">{armor}</button>
         </div>
 
         <div className="frame-area mt10">
@@ -45,14 +47,37 @@ export default ({
           <div className="fx mt10 horizontal-scroll">
             <button
               className="btn-rounded w-a"
-              onClick={() => setVisibleEffect(true)}
+              onClick={() => {
+                setVisibleEffect(true);
+                setCurrPerson(id);
+              }}
             >
               <i className="fa-solid fa-plus"></i>
             </button>
             {displayPersonsEffects()}
           </div>
         </div>
-        <button className="btn-rounded-grey mt10">Концентрация</button>
+        <button
+          className={`mt10 ${
+            concentration ? "btn-rounded-green" : "btn-rounded-grey"
+          }`}
+          onClick={() => {
+            const updatedPersons = Persons.map((person) => {
+              if (person.id === id) {
+                return {
+                  ...person,
+                  concentration: !person.concentration,
+                };
+              } else {
+                return person;
+              }
+            });
+            setPersons(() => updatedPersons);
+            localStorage.setItem("persons", JSON.stringify(updatedPersons));
+          }}
+        >
+          Концентрация
+        </button>
       </div>
     </>
   );

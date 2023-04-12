@@ -86,7 +86,7 @@ export default () => {
       {visibleEffect ? (
         <div className="popup-overlay">
           <PopupWrap customClass="popup-fx">
-            <AddEffect />
+            <AddEffect/>
           </PopupWrap>
         </div>
       ) : null}

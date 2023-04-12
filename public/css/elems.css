@@ -47,8 +47,7 @@
   transform: rotate(180deg);
 }
 
-.open-text
-{
+.open-text {
   display: block !important;
 }
 
@@ -64,13 +63,12 @@
   padding: 0 15px;
 }
 
-.frame-area
-{
-    width: 100%;
-    background: #151516;
-    border: 1px solid #383841;
-    border-radius: 9px;
-    padding: 5px;
+.frame-area {
+  width: 100%;
+  background: #151516;
+  border: 1px solid #383841;
+  border-radius: 9px;
+  padding: 5px;
 }
 
 .form-input::placeholder {
@@ -137,7 +135,19 @@
   padding: 0 15px;
   border-radius: 50px;
   background: #383841;
-  color: #8D8D8E;
+  color: #8d8d8e;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn-rounded-green {
+  width: 100%;
+  min-width: 54px;
+  height: 32px;
+  padding: 0 15px;
+  border-radius: 50px;
+  background: #76b041;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
 }
@@ -254,24 +264,21 @@
   font-size: 28px;
 }
 
-.sidebar
-{
+.sidebar {
   position: fixed;
   top: 0;
   width: 320px;
   height: 100%;
-  background: #1C1C1E;
+  background: #1c1c1e;
   padding: 0 15px;
 
   overflow-y: auto;
 }
 
-.sidebar-l
-{
+.sidebar-l {
   left: 0;
 }
 
-.sidebar-r 
-{
+.sidebar-r {
   right: 0;
 }

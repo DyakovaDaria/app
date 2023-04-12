@@ -12,7 +12,7 @@ export default ({
   initiative,
   id,
 }) => {
-  const { setVisibleEffect, Persons, setPersons} =
+  const { setVisibleEffect, Persons, setPersons, setCurrPerson } =
     useContext(ContextGame);
   const person = Persons.find((p) => p.id === id);
 
@@ -66,7 +66,10 @@ export default ({
           <div className="fx mt10 horizontal-scroll">
             <button
               className="btn-rounded w-a"
-              onClick={() => setVisibleEffect(true)}
+              onClick={() => {
+                setVisibleEffect(true);
+                setCurrPerson(id);
+              }}
             >
               <i className="fa-solid fa-plus"></i>
             </button>

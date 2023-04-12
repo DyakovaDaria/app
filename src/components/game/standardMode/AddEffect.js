@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { ContextGame } from "../../../context/ContextGame";
 
 export default () => {
-  const { setVisibleEffect, currPerson, Persons, setPersons } =
+  const { setVisibleEffect, Persons, setPersons, currPerson } =
     useContext(ContextGame);
 
   const [effect, setEffects] = useState("Без сознания");

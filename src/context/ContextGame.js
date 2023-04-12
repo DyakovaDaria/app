@@ -7,6 +7,7 @@ export default ({ children }) => {
   const [visibleEffect, setVisibleEffect] = useState(false);
   const [visibleNpcCreate, setVisibleNpcCreate] = useState(false);
   const [isInitiative, setInitiative] = useState(false);
+  const [currPerson, setCurrPerson] = useState(true);
 
   useEffect(() => {
     let persons = JSON.parse(localStorage.getItem("persons")) || [];
@@ -25,7 +26,7 @@ export default ({ children }) => {
         isInitiative,
         setInitiative,
         visibleNpcCreate,
-        setVisibleNpcCreate,
+        setVisibleNpcCreate, currPerson, setCurrPerson
       }}
     >
       {children}
