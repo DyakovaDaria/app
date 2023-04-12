@@ -27,7 +27,7 @@ export default ({
 
   return (
     <>
-        <div className="popup-frame br-none">
+        <div className="popup-frame br-none mt10">
           <h3 className="text-upper text-grey">{username}</h3>
           <div className="frame-area mt10">
             <p className="text-sm text-grey">Состояния</p>

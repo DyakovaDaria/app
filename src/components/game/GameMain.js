@@ -11,6 +11,7 @@ import SidebarLeft from "./SidebarLeft";
 import SidebarRight from "./SidebarRight";
 import AddNpc from "./initiativeMode/AddNpc";
 import NpcCharacterForm from "./initiativeMode/NpcCharacterForm";
+import GameProcessPersonForm from "./initiativeMode/GameProcessPersonForm";
 
 export default () => {
   const {
@@ -27,6 +28,7 @@ export default () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [turnCounter, setTurnCounter] = useState(0);
   const [roundCounter, setRoundCounter] = useState(0);
+  const [currPersons, setCurrPersons] = useState([]);
 
   useEffect(() => {
     let initiativeFlag = true;
@@ -37,6 +39,27 @@ export default () => {
     }
     setIsButtonDisabled(!initiativeFlag);
   });
+
+  const startedGameListView = () => {
+    if (roundCounter > 0) {
+      return Persons.sort((a, b) => b.initiative - a.initiative).map(
+        (el) =>
+          el.isNpc ? (
+            <NpcCharacterForm key={el.id} {...el} />
+          ) : (
+            <GameProcessPersonForm key={el.id} {...el} />
+          )
+      );
+    } else {
+      return Persons.map((el) =>
+        el.isNpc ? (
+          <NpcCharacterForm key={el.id} {...el} />
+        ) : (
+          <InitiativeFormPerson key={el.id} {...el} />
+        )
+      );
+    }
+  };
 
   return (
     <>
@@ -83,20 +106,7 @@ export default () => {
           >
             <i className="fa-solid fa-angle-down"></i>
           </button>
-          {/* {Persons.sort((a, b) => b.initiative - a.initiative).map((el) =>
-            el.isNpc ? (
-              <NpcCharacterForm key={el.id} {...el} />
-            ) : (
-              <InitiativeFormPerson key={el.id} {...el} />
-            )
-          )} */}
-          {Persons.map((el) =>
-            el.isNpc ? (
-              <NpcCharacterForm key={el.id} {...el} />
-            ) : (
-              <InitiativeFormPerson key={el.id} {...el} />
-            )
-          )}
+          {startedGameListView()}
         </PopupWrap>
       ) : (
         <PopupWrap customClass="pt10">
