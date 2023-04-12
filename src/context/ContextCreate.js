@@ -13,6 +13,7 @@ export default ({ children }) => {
     effects: [],
     initiative: 0,
     id: 0,
+    isNpc: false,
   };
 
   const [step, setStep] = useState(0);
@@ -42,7 +43,7 @@ export default ({ children }) => {
   const submitPersonForm = () => {
     for (let person of Persons) {
       for (let key in person) {
-        if (key != "dropdown" && key != "effects" && key != "initiative" && key != "id") {
+        if (key != "dropdown" && key != "effects" && key != "initiative" && key != "id" && key != "isNpc") {
           if (person[key].trim() == "") return setErr("Заполните все поля");
         }
       }

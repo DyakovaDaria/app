@@ -80,6 +80,11 @@ a {
   color: #8d8d8e;
 }
 
+.text-green,
+.text-green * {
+  color: #76B041;
+}
+
 .text-err,
 .text-err * {
   color: red;

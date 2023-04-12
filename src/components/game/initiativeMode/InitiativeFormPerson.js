@@ -12,9 +12,9 @@ export default ({
   initiative,
   id,
 }) => {
-  const { setVisibleEffect, Persons, setPersons, currPerson } =
+  const { setVisibleEffect, Persons, setPersons} =
     useContext(ContextGame);
-  const person = Persons.find((p) => p.id === currPerson);
+  const person = Persons.find((p) => p.id === id);
 
   const displayPersonsEffects = () => {
     if (person) {
@@ -28,7 +28,7 @@ export default ({
 
   const changePersonInitiative = (val) => {
     const updatedPersons = Persons.map((person) => {
-      if (person.id === currPerson) {
+      if (person.id === id) {
         return {
           ...person,
           initiative: val,

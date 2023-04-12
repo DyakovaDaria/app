@@ -9,10 +9,18 @@ import InitiativeFormPerson from "./initiativeMode/InitiativeFormPerson";
 
 import SidebarLeft from "./SidebarLeft";
 import SidebarRight from "./SidebarRight";
+import AddNpc from "./initiativeMode/AddNpc";
+import NonPlayableCharacterModel from "../../models/NonPlayableCharacterModel";
+import NpcCharacterForm from "./initiativeMode/NpcCharacterForm";
 
 export default () => {
-  const { Persons, visibleEffect, setCurrPerson, isInitiative } =
-    useContext(ContextGame);
+  const {
+    Persons,
+    visibleEffect,
+    isInitiative,
+    visibleNpcCreate,
+    setVisibleNpcCreate,
+  } = useContext(ContextGame);
 
   if (!Persons.length) return null;
 
@@ -36,7 +44,10 @@ export default () => {
 
       {isInitiative ? (
         <PopupWrap customClass="pt10 popup-fx">
-          <button className="btn-circle add-person">
+          <button
+            className="btn-circle add-person"
+            onClick={() => setVisibleNpcCreate(true)}
+          >
             <i className="fa-solid fa-plus"></i>
           </button>
           <div className="btn-r-inf add-person mt60">
@@ -51,18 +62,23 @@ export default () => {
           >
             <i className="fa-solid fa-angle-down"></i>
           </button>
-          {Persons.map((el) => (
+          {Persons.filter((el) => !el.isNpc).map((el) => (
             <InitiativeFormPerson
               key={el.id}
               {...el}
-              onClick={setCurrPerson(el.id)}
+            />
+          ))}
+          {Persons.filter((el) => el.isNpc).map((el) => (
+            <NpcCharacterForm
+              key={el.id}
+              {...el}
             />
           ))}
         </PopupWrap>
       ) : (
         <PopupWrap customClass="pt10">
-          {Persons.map((el) => (
-            <FormPerson key={el.id} {...el} onClick={setCurrPerson(el.id)} />
+          {Persons.filter((el) => !el.isNpc).map((el) => (
+            <FormPerson key={el.id} {...el} />
           ))}
         </PopupWrap>
       )}
@@ -71,6 +87,14 @@ export default () => {
         <div className="popup-overlay">
           <PopupWrap customClass="popup-fx">
             <AddEffect />
+          </PopupWrap>
+        </div>
+      ) : null}
+
+      {visibleNpcCreate ? (
+        <div className="popup-overlay">
+          <PopupWrap customClass="popup-fx">
+            <AddNpc />
           </PopupWrap>
         </div>
       ) : null}

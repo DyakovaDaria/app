@@ -5,8 +5,7 @@ export const ContextGame = createContext();
 export default ({ children }) => {
   const [Persons, setPersons] = useState([]);
   const [visibleEffect, setVisibleEffect] = useState(false);
-
-  const [currPerson, setCurrPerson] = useState(0);
+  const [visibleNpcCreate, setVisibleNpcCreate] = useState(false);
   const [isInitiative, setInitiative] = useState(false);
 
   useEffect(() => {
@@ -23,10 +22,10 @@ export default ({ children }) => {
         setPersons,
         visibleEffect,
         setVisibleEffect,
-        currPerson,
-        setCurrPerson,
         isInitiative,
         setInitiative,
+        visibleNpcCreate,
+        setVisibleNpcCreate,
       }}
     >
       {children}

@@ -12,10 +12,10 @@ export default ({
   initiative,
   id,
 }) => {
-  const { setVisibleEffect, Persons, currPerson } = useContext(ContextGame);
+  const { setVisibleEffect, Persons } = useContext(ContextGame);
 
   const displayPersonsEffects = () => {
-    const person = Persons.find((p) => p.id === currPerson);
+    const person = Persons.find((p) => p.id === id);
     if (person) {
       return person.effects.map((effect, index) => <p key={index} className="p-rounded ml5">{effect.type}</p>);
     }
