@@ -115,13 +115,11 @@ export default () => {
         </PopupWrap>
       ) : (
         <PopupWrap customClass="pt10">
-          {currPersons.map((el) =>
-            el.isNpc ? (
-              <NpcCharacterForm key={el.id} {...el} />
-            ) : (
+          {currPersons
+            .filter((item) => !item.isNpc)
+            .map((el) => (
               <FormPerson key={el.id} {...el} />
-            )
-          )}
+            ))}
         </PopupWrap>
       )}
 
