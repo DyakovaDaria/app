@@ -87,3 +87,17 @@
   align-items: center;
   text-align: center;
 }
+
+.text-overlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.image-container {
+  position: relative;
+}

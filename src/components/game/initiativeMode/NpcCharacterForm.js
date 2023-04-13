@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { ContextGame } from "../../../context/ContextGame";
+import shieldImg from "../../../img/Vector.svg";
 
 export default ({
   username,
@@ -40,7 +41,12 @@ export default ({
                 {health}
               </h3>
             </div>
-            <button className="btn-shield">{armor}</button>
+            <div className="image-container mt15 ml10">
+              <div className="text-overlay">
+                <p>{armor}</p>
+              </div>
+              <img src={shieldImg} />
+            </div>
           </div>
 
           <div className="frame-area mt10">
