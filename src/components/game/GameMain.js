@@ -29,7 +29,6 @@ export default () => {
   const [turnCounter, setTurnCounter] = useState(0);
   const [roundCounter, setRoundCounter] = useState(0);
   const [currPersons, setCurrPersons] = useState([]);
-  const [personTurn, setPersonTurn] = useState(0);
 
   useEffect(() => {
     setCurrPersons(Persons);
@@ -55,10 +54,14 @@ export default () => {
       const newPersons = currPersons.sort(
         (a, b) => b.initiative - a.initiative
       );
+      newPersons[turnCounter - 1].hasCurrentTurn = true;
+      if (turnCounter > 1) {
+        newPersons[turnCounter - 2].hasCurrentTurn = false;
+      } else {
+        newPersons[newPersons.length - 1].hasCurrentTurn = false;
+      }
       setPersons(newPersons);
-      return currPersons.map((el) =>
-        getPlayableOrNpc(el)
-      );
+      return currPersons.map((el) => getPlayableOrNpc(el));
     } else {
       return currPersons.map((el) =>
         el.isNpc ? (
