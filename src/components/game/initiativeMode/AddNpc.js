@@ -43,7 +43,7 @@ export default () => {
         </div>
 
         <div className="fx mt10">
-          <div className="w30 pr5">
+          <div className="w35 pr5">
             <div className="frame-area">
               <input
                 type="number"
@@ -56,7 +56,7 @@ export default () => {
             </div>
           </div>
 
-          <div className="w30 pr5 ml70">
+          <div className="w35 pr5 ml70">
             <div className="frame-area">
               <input
                 type="number"
@@ -69,7 +69,7 @@ export default () => {
             </div>
           </div>
 
-          <div className="w30 pr5 ml70">
+          <div className="w35 pr5 ml70">
             <div className="frame-area">
               <input
                 type="number"
