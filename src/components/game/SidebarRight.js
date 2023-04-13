@@ -28,16 +28,16 @@ export default () => {
           {buttonText}
         </button>
 
-        <div className="frame-area br-none mt50">
+        <div className="frame-area br-none mt40">
           <p className="text-sm text-grey">Заметки</p>
           <textarea
             placeholder="Можете оставить здесь свои заметки"
             className="noframe-input mt10"
           ></textarea>
         </div>
-        <div className="t-center mt30">
+        <div className="t-center mt20">
           <QRCode
-            size={68}
+            size={50}
             value={qr}
             viewBox={`0 0 256 256`}
             bgColor={"transparent"}
@@ -45,6 +45,10 @@ export default () => {
           />
           <p className="text-upper text-grey">{qr}</p>
         </div>
+          <button className="btn-rounded-grey mt20" onClick={() => {
+            localStorage.clear();
+            window.location.assign("/");
+          }}> Завершить игру </button>
       </div>
     </>
   );
