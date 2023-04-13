@@ -17,7 +17,7 @@
   width: 3px;
   height: 7px;
   background: #151516;
-  opacity: 0; 
+  opacity: 0;
 }
 
 *::-webkit-scrollbar:hover {
@@ -25,8 +25,8 @@
 }
 
 * ::-webkit-scrollbar-track {
-    background: transparent;
-  }
+  background: transparent;
+}
 
 *::-webkit-scrollbar-thumb {
   width: 3px;
@@ -82,7 +82,7 @@ a {
 
 .text-green,
 .text-green * {
-  color: #76B041;
+  color: #76b041;
 }
 
 .text-err,

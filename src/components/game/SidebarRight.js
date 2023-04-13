@@ -5,22 +5,28 @@ import { ContextGame } from "../../context/ContextGame";
 
 export default () => {
   const qr = localStorage.getItem("qr");
-  const { isInitiative, setInitiative } = useContext(ContextGame);
+  const { isInitiative, setInitiative, Persons, setPersons } =
+    useContext(ContextGame);
   const [buttonText, setButtonText] = useState("Перейти к инициативе");
 
   const setInitiativeModeButton = () => {
     setInitiative(!isInitiative);
     if (isInitiative) {
+      for (let index = 0; index < Persons.length; index++) {
+        Persons[index].hasCurrentTurn = false;
+      }
       setButtonText("Перейти к инициативе");
     } else {
       setButtonText("Выйти из инициативы");
     }
-  }
+  };
 
   return (
     <>
       <div className="sidebar sidebar-r pt40">
-        <button className="btn-rounded" onClick={setInitiativeModeButton}>{buttonText}</button>
+        <button className="btn-rounded" onClick={setInitiativeModeButton}>
+          {buttonText}
+        </button>
 
         <div className="frame-area br-none mt50">
           <p className="text-sm text-grey">Заметки</p>
