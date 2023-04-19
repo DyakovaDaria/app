@@ -51,14 +51,16 @@ export default () => {
 
   const startedGameListView = () => {
     if (roundCounter > 0) {
-      const newPersons = currPersons.sort(
-        (a, b) => b.initiative - a.initiative
-      );
-      newPersons[turnCounter - 1].hasCurrentTurn = true;
-      if (turnCounter > 1) {
-        newPersons[turnCounter - 2].hasCurrentTurn = false;
+      let newPersons = currPersons.sort((a, b) => b.initiative - a.initiative);
+      if (currPersons.length > 1) {
+        if (turnCounter > 1) {
+          newPersons[turnCounter - 2].hasCurrentTurn = false;
+        } else {
+          newPersons[newPersons.length - 1].hasCurrentTurn = false;
+        }
+        newPersons[turnCounter - 1].hasCurrentTurn = true;
       } else {
-        newPersons[newPersons.length - 1].hasCurrentTurn = false;
+        newPersons[0].hasCurrentTurn = true;
       }
       setPersons(newPersons);
       return currPersons.map((el) => getPlayableOrNpc(el));

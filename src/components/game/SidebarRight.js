@@ -12,9 +12,6 @@ export default () => {
   const setInitiativeModeButton = () => {
     setInitiative(!isInitiative);
     if (isInitiative) {
-      for (let index = 0; index < Persons.length; index++) {
-        Persons[index].hasCurrentTurn = false;
-      }
       setButtonText("Перейти к инициативе");
     } else {
       setButtonText("Выйти из инициативы");
@@ -45,10 +42,16 @@ export default () => {
           />
           <p className="text-upper text-grey">{qr}</p>
         </div>
-          <button className="btn-rounded-grey mt20" onClick={() => {
+        <button
+          className="btn-rounded-grey mt20"
+          onClick={() => {
             localStorage.clear();
             window.location.assign("/");
-          }}> Завершить игру </button>
+          }}
+        >
+          {" "}
+          Завершить игру{" "}
+        </button>
       </div>
     </>
   );
