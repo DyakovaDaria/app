@@ -4,8 +4,8 @@ import PlayableCharacterModel from "../models/PlayableCharacterModel";
 
 const socket = io("http://localhost:3000");
 
-const updatePersons = (Persons, code) => {
-  const charactersList = [];
+const getCharactersList = (Persons) => {
+  let charactersList = [];
   for (let index = 0; index < Persons.length; index++) {
     const element = Persons[index];
     const newPerson = element.isNpc
@@ -33,9 +33,25 @@ const updatePersons = (Persons, code) => {
       },
     ];
   }
-  socket.emit("refreshCharacters", charactersList, code);
+  return charactersList;
+};
+
+const updatePersons = (Persons, code) => {
+  socket.emit("refreshCharacters", getCharactersList(Persons), code);
 };
 
 const deleteGame = (code) => {
-    socket.emit("deleteGame", code);
-}
+  socket.emit("deleteGame", code);
+};
+
+const createGame = (Persons) => {
+  socket.emit("createGame", getCharactersList(Persons));
+};
+
+const getInvitationCode = () => {
+  let code = "";
+  socket.on("createdGame", (roomName) => {
+    code = roomName;
+  });
+  return code;
+};
